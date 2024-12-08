@@ -37,8 +37,17 @@ async Task<string> Handler()
     try
     {
         var content = await httpClient.GetStringAsync(url);
-        logger.LogInformation($"Dotnet Client: Successfully fetched content from {url}: {content}");
-        return $"Dotnet Client: Successfully fetched content from {url}: {content}";
+
+        if (content.Contains("Dotnet Server Error:"))
+        {
+          logger.LogError($"Dotnet Client Error: {content}");
+          return $"Dotnet Client Error: {content}";
+        }
+        else
+        {
+          logger.LogInformation($"Dotnet Client: Successfully fetched content from {url}: {content}");
+          return $"Dotnet Client: Successfully fetched content from {url}: {content}";
+        }
     }
     catch (Exception ex)
     {
