@@ -33,6 +33,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 .terraform.lock.hcl
+.ropeproject
 
 # OSx Files
 **/*.DS_Store*
