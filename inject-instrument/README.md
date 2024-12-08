@@ -24,3 +24,25 @@ This demo application's worklow has the following order:
 7. Python Caller respond Python Web Client (1 + 2)
 
 <br>
+
+## Configuration
+
+You need an OpenTelemetry Operator and an OpenTelemetry Instrumentation Custom Resource (CR) in order to orchestrate instrumentation.
+
+Then add the following annotation to the application Pods:
+
+```yaml
+### For Python application:
+instrumentation.opentelemetry.io/inject-python: instrumentation_cr_namespace/instrumentation_cr_name
+
+### For .NET application:
+instrumentation.opentelemetry.io/inject-dotnet: instrumentation_cr_namespace/instrumentation_cr_name
+
+### For Java application:
+instrumentation.opentelemetry.io/inject-java: instrumentation_cr_namespace/instrumentation_cr_name
+
+### For other language:
+instrumentation.opentelemetry.io/inject-<language_name>: instrumentation_cr_namespace/instrumentation_cr_name
+```
+
+<br>

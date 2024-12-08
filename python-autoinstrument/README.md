@@ -55,3 +55,7 @@ client:
   - name: OTEL_LOGS_EXPORTER
     value: otlp
 ```
+
+<br>
+
+There are many other environment variables in the concept of OpenTelemetry, which can be found at [Python Zero-code Instrumentation](https://opentelemetry.io/docs/zero-code/python/configuration/#environment-variables).
