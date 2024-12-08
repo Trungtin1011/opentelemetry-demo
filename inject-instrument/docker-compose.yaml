@@ -1,0 +1,37 @@
+services:
+  # Microsoft SQL Server for .NET Server to query
+  mssql-db:
+    image: trungtin1011/opentelemetry-demo:mssql
+    build:
+      context: ./mssql-db
+      dockerfile: ./Dockerfile
+  # .NET Client calls .NET Server
+  dotnet-client:
+    image: trungtin1011/opentelemetry-demo:dotnet-client
+    build:
+      context: ./dotnet-client
+      dockerfile: ./Dockerfile
+  # .NET Server queries Microsoft SQL Server
+  dotnet-service:
+    image: trungtin1011/opentelemetry-demo:dotnet-service
+    build:
+      context: ./dotnet-service
+      dockerfile: ./Dockerfile
+  # Python Web Client calls Python Caller
+  python-client:
+    image: trungtin1011/opentelemetry-demo:python-client
+    build:
+      context: ./python-client
+      dockerfile: ./Dockerfile
+  # Python Caller calls Python Server and triggers .NET Client
+  python-caller:
+    image: trungtin1011/opentelemetry-demo:python-caller
+    build:
+      context: ./python-caller
+      dockerfile: ./Dockerfile
+  # Python Server response to Python Caller
+  python-server:
+    image: trungtin1011/opentelemetry-demo:python-server
+    build:
+      context: ./python-server
+      dockerfile: ./Dockerfile
