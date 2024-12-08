@@ -16,6 +16,7 @@ Both applications are pre-installed with OpenTelemetry Zero-Code libraries, to c
 
 <br>
 
+```json
 server = {
   environment = [
     { name = "OTEL_SERVICE_NAME", value = "flask-server" },
@@ -27,9 +28,11 @@ server = {
     { name = "OTEL_LOGS_EXPORTER", value = "none" },
   ]
 }
+```
 
 <br>
 
+```json
 client = {
   environment = [
     { name = "SERVER_ENDPOINT", value = "http://flask-server:5000/server_request" },
