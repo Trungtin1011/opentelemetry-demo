@@ -1,0 +1,13 @@
+services:
+  # Flask Web Client calls Flask Server
+  flask-client:
+    image: trungtin1011/opentelemetry-demo:flask-client-auto
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+  # Flask Server response to Flask Client
+  flask-server:
+    image: trungtin1011/opentelemetry-demo:flask-server-auto
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile

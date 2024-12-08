@@ -1,31 +1,21 @@
-# Python auto-instrumentation demo on Amazon ECS
+# Python auto-instrumentation demo
 
-&nbsp;
+Flask-server app that listen to port `5555/TCP` with the default endpoint is: `0.0.0.0:5555/server_request`
 
-## Server
+<br>
 
-Flask app that listen to port `5000/TCP`.
+Flask web client that has a button for sending requests to **Flask Server**. The web application get server endpoint through an environment variable named `SERVER_ENDPOINT` that point to the server endpoint in the form of: `http://server_ip:5555/server_request`
 
-Default endpoint is: `0.0.0.0:5000/server_request`
+<br>
 
-Build image with command: `docker build -t repo/image_name:image_tag ./server/`
+To build image for the 2 applications use **docker compose** (v2) and run: `docker compose build`
 
-&nbsp;
+<br>
 
-## Client
+Both applications are pre-installed with OpenTelemetry Zero-Code libraries, to configure the applications to send telemetry to OpenTelemetry Collector, configure some additional environment variables:
 
-A Flask webapp that has a button for sending requests to **Server**.
+<br>
 
-Must define environment variable named `SERVER_ENDPOINT` that point to the server endpoint in the form of: `http://server_ip:5000/server_request`
-
-Build image with command: `docker build -t repo/image_name:image_tag ./client/`
-
-&nbsp;
-
-## Environment variables
-
-Example environment variables on each image should look like:
-```
 server = {
   environment = [
     { name = "OTEL_SERVICE_NAME", value = "flask-server" },
@@ -37,7 +27,9 @@ server = {
     { name = "OTEL_LOGS_EXPORTER", value = "none" },
   ]
 }
----
+
+<br>
+
 client = {
   environment = [
     { name = "SERVER_ENDPOINT", value = "http://flask-server:5000/server_request" },
