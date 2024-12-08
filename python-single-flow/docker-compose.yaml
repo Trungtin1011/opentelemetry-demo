@@ -1,0 +1,19 @@
+services:
+  # Python Web Client calls Python Caller
+  python-client-single:
+    image: trungtin1011/opentelemetry-demo:python-client-single
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+  # Python Caller calls Python Server and triggers .NET Client
+  python-caller-single:
+    image: trungtin1011/opentelemetry-demo:python-caller-single
+    build:
+      context: ./caller
+      dockerfile: ./Dockerfile
+  # Python Server response to Python Caller
+  python-server-single:
+    image: trungtin1011/opentelemetry-demo:python-server-single
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile

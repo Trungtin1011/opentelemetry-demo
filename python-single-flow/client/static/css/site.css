@@ -1,0 +1,57 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/segoeuil.ttf");
+}
+
+.cloud-image {
+  width: 1200px;
+  height: 150px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+}
+.cloud-image img {
+  width: 200px;
+}
+
+#myButton {
+  padding: 20px 40px;
+  font-size: 24px;
+  font-family: "Segoe UI";
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#myButton:hover {
+  background-color: #0056b3;
+}
+#response {
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: "Segoe UI";
+  color: #333;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.text {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: "Segoe UI";
+  color: #333;
+}
